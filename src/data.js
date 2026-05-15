@@ -10,7 +10,7 @@ export const templateData = {
       { id: "about", label: "About" },
       { id: "contact", label: "Contact" },
     ],
-    ctaText: "Schedule Consultation"
+    ctaText: "Book a Free Consultation"
   },
   hero: {
     id: "home",

@@ -43,7 +43,7 @@ const Navbar = ({ data }) => {
           <li>
             <button 
               onClick={() => handleScroll('contact')}
-              className="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-500 font-semibold transition-all shadow-sm hover:shadow-md text-sm lg:text-base"
+              className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-blue-600/50 hover:shadow-xl hover:shadow-blue-600/80 hover:-translate-y-1 text-sm lg:text-base relative overflow-hidden group"
             >
               {data.ctaText}
             </button>
@@ -77,7 +77,7 @@ const Navbar = ({ data }) => {
             <li className="pt-4 border-t border-slate-100">
               <button 
                 onClick={() => handleScroll('contact')}
-                className="w-full bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-500 font-semibold transition-colors text-center shadow-md"
+                className="w-full bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold transition-all duration-300 text-center shadow-lg shadow-blue-600/50 hover:shadow-xl hover:shadow-blue-600/80 hover:-translate-y-0.5"
               >
                 {data.ctaText}
               </button>
