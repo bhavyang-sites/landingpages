@@ -24,7 +24,7 @@ const Navbar = ({ data }) => {
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
-            className="h-10 md:h-14 lg:h-16 w-auto transition-transform duration-300 hover:scale-105" 
+            className="h-16 md:h-20 lg:h-28 w-auto transition-transform duration-300 hover:scale-105"
           />
         </div>
         
