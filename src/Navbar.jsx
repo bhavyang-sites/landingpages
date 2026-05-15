@@ -20,11 +20,14 @@ const Navbar = ({ data }) => {
       <div className="flex items-center justify-between px-6 lg:px-16 py-3 w-full">
         
         {/* Logo Section - Now using the SVG */}
-        <div className="flex items-center z-50 cursor-pointer" onClick={() => handleScroll('home')}>
+        {/* Logo Section */}
+        <div className="flex items-center z-50 cursor-pointer h-12 md:h-16" onClick={() => handleScroll('home')}>
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
-            className="h-16 md:h-20 lg:h-28 w-auto transition-transform duration-300 hover:scale-105"
+            // We lock the height, but use scale-[2.5] to zoom in 250% 
+            // origin-left ensures it zooms out to the right, keeping it pinned to the left edge
+            className="h-full w-auto transform scale-[2.5] lg:scale-[3] origin-left transition-transform duration-300" 
           />
         </div>
         
