@@ -34,7 +34,7 @@ const Navbar = ({ data }) => {
             <li key={item.id}>
               <button 
                 onClick={() => handleScroll(item.id)}
-                className="hover:text-blue-600 transition-colors text-sm lg:text-base"
+                className="px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-sm lg:text-base"
               >
                 {item.label}
               </button>
@@ -68,7 +68,7 @@ const Navbar = ({ data }) => {
               <li key={item.id}>
                 <button 
                   onClick={() => handleScroll(item.id)}
-                  className="w-full text-left text-lg hover:text-blue-600 transition-colors py-2"
+                  className="w-full text-left text-lg px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300"
                 >
                   {item.label}
                 </button>
