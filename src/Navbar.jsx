@@ -30,13 +30,12 @@ const Navbar = ({ data }) => {
       <div className="absolute inset-0 z-0 bg-[#28A78D]">
         
         {/* Pure White - Left Section */}
-        {/* SHRUNK SLIGHTLY: Reduced lg width to 30% so "Home" is fully in the Teal area */}
-        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[30%] h-full bg-white z-10" style={{
+        {/* FIX 1: Shrunk lg width down to 27% to pull the slanted cut further away from "Home" */}
+        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[27%] h-full bg-white z-10" style={{
           clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
         }}></div>
         
         {/* Navy Blue - Right Section */}
-        {/* PUSHED RIGHT: Reduced lg width from 56% to 46% to give Teal more room for the "About" link */}
         <div className="absolute top-0 right-0 w-[15%] md:w-[45%] lg:w-[46%] h-full bg-[#2D4B7A] z-10" style={{
           clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0 100%)'
         }}></div>
@@ -55,10 +54,10 @@ const Navbar = ({ data }) => {
         </div>
         
         {/* Desktop Navigation & Contact Bar */}
-        {/* Changed to justify-between to naturally spread the links left and the contacts right */}
-        <div className="hidden lg:flex items-center justify-between w-full pl-2 xl:pl-6">
+        {/* FIX 2: Added 'pl-6 lg:pl-10 xl:pl-14' to push the entire link group right, safely into the Teal */}
+        <div className="hidden lg:flex items-center justify-between w-full pl-6 lg:pl-10 xl:pl-14">
           
-          {/* Main Links - Shifted Left */}
+          {/* Main Links */}
           <ul className="flex space-x-1 xl:space-x-3 text-white font-medium items-center">
             {data.navItems.map((item) => (
               <li key={item.id}>
