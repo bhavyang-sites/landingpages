@@ -37,7 +37,7 @@ const Navbar = ({ data }) => {
       <div className="relative z-20 flex items-center justify-between px-6 lg:px-12 py-3 w-full">
         
         {/* Logo Section */}
-        <div className="flex items-center cursor-pointer h-12 md:h-14" onClick={() => handleNavClick('home')}>
+        <div className="flex items-center cursor-pointer h-12 md:h-14 bg-white/10 px-3 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all" onClick={() => handleNavClick('home')}>
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
