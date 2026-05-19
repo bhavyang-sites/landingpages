@@ -30,28 +30,27 @@ const Navbar = ({ data }) => {
       <div className="absolute inset-0 z-0 bg-[#28A78D]">
         
         {/* Pure White - Left Section */}
-        {/* Slightly widened on desktop so the larger logo has plenty of room before the slant */}
-        <div className="absolute top-0 left-0 w-[65%] md:w-[45%] lg:w-[38%] h-full bg-white z-10" style={{
+        {/* FIX: Increased mobile width to 70% so the slanted cut is pushed further to the right */}
+        <div className="absolute top-0 left-0 w-[70%] md:w-[45%] lg:w-[40%] h-full bg-white z-10" style={{
           clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
         }}></div>
         
         {/* Navy Blue - Right Section */}
-        <div className="absolute top-0 right-0 w-[20%] md:w-[40%] lg:w-[45%] h-full bg-[#2D4B7A] z-10" style={{
+        {/* Adjusted mobile width to 15% to ensure the Teal middle section still shows */}
+        <div className="absolute top-0 right-0 w-[15%] md:w-[40%] lg:w-[45%] h-full bg-[#2D4B7A] z-10" style={{
           clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)'
         }}></div>
       </div>
 
       {/* Main Navbar Container */}
-      {/* FIX: Removed 'py-1 md:py-2' to completely eliminate extra container spacing */}
       <div className="relative z-20 flex items-center justify-between px-4 md:px-6 lg:px-12 w-full gap-4">
         
         {/* Logo Section */}
-        {/* FIX: Removed explicit width constraints. Used max-w to prevent overlapping the slant. */}
-        <div className="flex items-center cursor-pointer h-16 md:h-20 lg:h-[88px] max-w-[60%] md:max-w-[40%] lg:max-w-[35%]" onClick={() => handleNavClick('home')}>
+        {/* FIX: Reduced max-w to 55% on mobile. This mathematically guarantees the logo stops growing before it hits the slanted edge! */}
+        <div className="flex items-center cursor-pointer h-16 md:h-20 lg:h-[88px] max-w-[55%] md:max-w-[35%] lg:max-w-[30%]" onClick={() => handleNavClick('home')}>
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
-            // FIX: Changed w-full to w-auto so it scales naturally without creating vertical empty space
             className="h-full w-auto object-contain object-left transition-transform duration-300 hover:scale-105" 
           />
         </div>
