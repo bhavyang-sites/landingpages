@@ -28,8 +28,8 @@ const Navbar = ({ data }) => {
       
       {/* --- Bold Color Sections with Tilted Slices --- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Silvery White - Left Section */}
-        <div className="absolute top-0 left-0 w-1/4 h-full bg-gradient-to-b from-slate-50 to-slate-100" style={{
+        {/* Pure White - Left Section */}
+        <div className="absolute top-0 left-0 w-1/4 h-full bg-white" style={{
           clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
         }}></div>
         
@@ -45,10 +45,10 @@ const Navbar = ({ data }) => {
       </div>
 
       {/* Main Navbar Container */}
-      <div className="relative z-20 flex items-center justify-between px-6 lg:px-12 py-3 w-full">
+      <div className="relative z-20 flex items-center justify-between px-3 md:px-6 lg:px-12 py-3 w-full gap-4">
         
         {/* Logo Section */}
-        <div className="flex items-center cursor-pointer h-12 md:h-14" onClick={() => handleNavClick('home')}>
+        <div className="flex items-center cursor-pointer h-10 md:h-12 lg:h-14 flex-shrink-0 max-w-xs md:max-w-none" onClick={() => handleNavClick('home')}>
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
