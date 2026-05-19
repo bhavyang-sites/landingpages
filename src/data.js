@@ -3,7 +3,7 @@ import { FaHome, FaGraduationCap, FaChartLine, FaShieldAlt, FaStar, FaQuoteLeft,
 export const templateData = {
   header: {
     logoName: "Chirag Patel",
-    logoImage: "/InsuteWithChirag-Transparent.svg",
+    logoImage: "/InsureWithChirag-transparent.svg",
     navItems: [
       { id: "home", label: "Home" },
       { id: "services", label: "Services" },
