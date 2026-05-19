@@ -26,14 +26,22 @@ const Navbar = ({ data }) => {
       scrolled ? 'shadow-lg bg-[#2D4B7A]/95 backdrop-blur-md' : 'bg-[#2D4B7A]'
     }`}>
       
-      {/* --- Enhanced Gradient Background --- */}
+      {/* --- Bold Color Sections with Tilted Slices --- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Silvery white to teal gradient for logo area */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100 via-[#28A78D] via-30% via-[#6B7280] via-65% to-[#2D4B7A]"></div>
+        {/* Silvery White - Left Section */}
+        <div className="absolute top-0 left-0 w-1/4 h-full bg-gradient-to-b from-slate-50 to-slate-100" style={{
+          clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
+        }}></div>
         
-        {/* Subtle blur circles for depth */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-[20%] w-[35%] h-[300%] bg-white/20 blur-3xl opacity-60 rounded-full"></div>
-        <div className="absolute top-1/2 -translate-y-1/2 left-[35%] w-[30%] h-[300%] bg-[#28A78D]/30 blur-2xl opacity-50 rounded-full"></div>
+        {/* Teal - Center Section */}
+        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-[#28A78D]" style={{
+          clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0 100%)'
+        }}></div>
+        
+        {/* Navy Blue - Right Section */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#2D4B7A]" style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 15% 100%)'
+        }}></div>
       </div>
 
       {/* Main Navbar Container */}
