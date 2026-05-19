@@ -1,3 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============= GLOBAL STYLES ============= */
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ============= ANIMATIONS ============= */
+
+/* Delay utilities for staggered animations */
+@layer utilities {
+  .delay-0 {
+    animation-delay: 0s;
+  }
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-2000 {
+    animation-delay: 2s;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+}
+
+/* Subtle scale animation on hover */
+@layer components {
+  .hover-scale-105 {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-scale-110 {
+    @apply transition-transform duration-300 hover:scale-110;
+  }
+}
+
+/* Gradient text animation */
+@keyframes gradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-flow {
+    background-size: 200% 200%;
+    animation: gradientFlow 6s ease infinite;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+@layer components {
+  button, a {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D4B7A;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1b2d49;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #2D4B7A;
+  color: white;
+}
+
+/* Improved focus styles for accessibility */
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+  }
+}
+
+/* ============= COMPONENT STYLES ============= */
+
+/* Hero section animations */
+.hero-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Service card hover effect */
+.service-card {
+  @apply transition-all duration-500 hover:shadow-2xl;
+}
+
+/* Testimonial card styles */
+.testimonial-card {
+  @apply backdrop-blur-sm bg-opacity-70;
+}

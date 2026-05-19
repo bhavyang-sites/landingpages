@@ -7,21 +7,52 @@ export default {
   theme: {
     extend: {
       colors: {
-        // We are overriding the default blue to match the "Insure" hex code (#2D4B7A)
-        // This automatically updates all text-blue-600, bg-blue-600, etc. across your site.
+        // Brand color matching the logo
         blue: {
-          50: '#f2f5f9',  // Light background for the service icons
+          50: '#f2f5f9',
           100: '#e4ebf2', 
           200: '#cddce7',
           300: '#aabed3',
           400: '#829cba',
-          500: '#426597', // Lighter hover state
-          600: '#2D4B7A', // The exact brand color from the logo
+          500: '#426597',
+          600: '#2D4B7A',
           700: '#233a5f',
-          800: '#1b2d49', // Darker text color used in Navbar
-          900: '#142236', // Deep background for the Hero gradient
+          800: '#1b2d49',
+          900: '#142236',
         }
-      }
+      },
+      animation: {
+        'pulse': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce': 'bounce 2s infinite',
+        'fade-in': 'fadeIn 0.5s ease-in',
+        'slide-in-from-top': 'slideInFromTop 0.3s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideInFromTop: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        bounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+        '3000': '3000ms',
+      },
+      boxShadow: {
+        'glow': '0 0 20px rgba(59, 130, 246, 0.5)',
+        'glow-lg': '0 0 30px rgba(59, 130, 246, 0.6)',
+      },
     },
   },
   plugins: [],
