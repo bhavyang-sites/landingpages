@@ -30,8 +30,8 @@ const Navbar = ({ data }) => {
       <div className="absolute inset-0 z-0 bg-[#28A78D]">
         
         {/* Pure White - Left Section */}
-        {/* FIX 1: Shrunk lg width down to 27% to pull the slanted cut further away from "Home" */}
-        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[27%] h-full bg-white z-10" style={{
+        {/* FIX 1: Shrunk lg width down to 24% to pull the slanted cut far to the left */}
+        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[24%] h-full bg-white z-10" style={{
           clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
         }}></div>
         
@@ -54,16 +54,21 @@ const Navbar = ({ data }) => {
         </div>
         
         {/* Desktop Navigation & Contact Bar */}
-        {/* FIX 2: Added 'pl-6 lg:pl-10 xl:pl-14' to push the entire link group right, safely into the Teal */}
         <div className="hidden lg:flex items-center justify-between w-full pl-6 lg:pl-10 xl:pl-14">
           
           {/* Main Links */}
-          <ul className="flex space-x-1 xl:space-x-3 text-white font-medium items-center">
+          {/* Removed global text-white to allow dynamic colors */}
+          <ul className="flex space-x-1 xl:space-x-3 font-medium items-center">
             {data.navItems.map((item) => (
               <li key={item.id}>
                 <button 
                   onClick={() => handleNavClick(item.id)}
-                  className="px-2 xl:px-3 py-2 rounded-lg hover:bg-white/20 transition-all duration-300 text-sm xl:text-base drop-shadow-md hover:translate-y-[-2px]"
+                  /* FIX 2: Dynamic Text Colors - Navy for normal links, White for Contact */
+                  className={`px-2 xl:px-3 py-2 rounded-lg transition-all duration-300 text-sm xl:text-base hover:translate-y-[-2px] ${
+                    item.id === 'contact' || item.label.toLowerCase() === 'contact'
+                      ? 'text-white hover:bg-white/20 drop-shadow-md' 
+                      : 'text-[#2D4B7A] font-bold hover:bg-white/30'
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -80,21 +85,20 @@ const Navbar = ({ data }) => {
           </ul>
 
           {/* Contact & Social Section */}
-          <div className="flex items-center space-x-3 xl:space-x-4 pl-4 text-white ml-auto">
+          <div className="flex items-center space-x-3 xl:space-x-4 pl-4 ml-auto">
             
             {/* Highlighted Teal Phone Box */}
-            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] hover:bg-[#218c75] px-4 py-2 rounded-lg transition-all shadow-md group border border-[#218c75]">
+            {/* FIX 2: Changed text to Navy Blue to match the navigation links */}
+            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] hover:bg-[#218c75] text-[#2D4B7A] px-4 py-2 rounded-lg transition-all shadow-md group border border-[#218c75]">
               <FaPhoneAlt className="text-sm xl:text-base mr-2 group-hover:scale-110 transition-transform"/>
-              <span className="text-sm xl:text-base font-bold tracking-wide whitespace-nowrap">(123) 456-7890</span>
+              <span className="text-sm xl:text-base font-extrabold tracking-wide whitespace-nowrap">(123) 456-7890</span>
             </a>
 
             {/* Brand Colored Social Icons */}
             <div className="flex items-center space-x-2 xl:space-x-3">
-              {/* Official Instagram Gradient */}
               <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
                 <FaInstagram className="text-xl"/>
               </a>
-              {/* Official WhatsApp Green */}
               <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
                 <FaWhatsapp className="text-xl"/>
               </a>
