@@ -26,11 +26,14 @@ const Navbar = ({ data }) => {
       scrolled ? 'shadow-lg bg-[#2D4B7A]/95 backdrop-blur-md' : 'bg-[#2D4B7A]'
     }`}>
       
-      {/* --- Gradient Background --- */}
-      <div className="absolute inset-0 z-0 bg-[#2D4B7A] overflow-hidden">
-        <div className="absolute top-1/2 -translate-y-1/2 left-[30%] w-[40%] h-[300%] bg-[#28A78D] blur-[60px] opacity-95 rounded-full"></div>
-        <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[35%] h-[300%] bg-[#6B7280] blur-[60px] opacity-90 rounded-full"></div>
-        {/* Removed white fade to show transparent logo properly */}
+      {/* --- Enhanced Gradient Background --- */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Silvery white to teal gradient for logo area */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100 via-[#28A78D] via-30% via-[#6B7280] via-65% to-[#2D4B7A]"></div>
+        
+        {/* Subtle blur circles for depth */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-[20%] w-[35%] h-[300%] bg-white/20 blur-3xl opacity-60 rounded-full"></div>
+        <div className="absolute top-1/2 -translate-y-1/2 left-[35%] w-[30%] h-[300%] bg-[#28A78D]/30 blur-2xl opacity-50 rounded-full"></div>
       </div>
 
       {/* Main Navbar Container */}
