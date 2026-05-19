@@ -38,10 +38,9 @@ const Navbar = ({ data }) => {
       {/* TIER 1: TOP WHITE PANEL (Logo & Contacts) */}
       {/* ========================================= */}
       <div className="w-full bg-white transition-all duration-300">
-        {/* max-w-[1400px] adds that nice even padding/spacing to the far left and right edges */}
         <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 lg:px-12 py-3 lg:py-4">
           
-          {/* Logo - Shifted right naturally by the container padding */}
+          {/* Logo */}
           <div className="flex items-center cursor-pointer h-16 lg:h-20" onClick={() => handleNavClick('home')}>
             <img 
               src={data.logoImage} 
@@ -96,24 +95,47 @@ const Navbar = ({ data }) => {
       {/* TIER 2: END-TO-END TEAL STRIP (Nav Links) */}
       {/* ========================================= */}
       <div className="hidden lg:block w-full bg-[#28A78D] shadow-inner">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-3 flex items-center space-x-8 xl:space-x-12">
-          {data.navItems.map((item) => {
-            // Automatically rename the label to "Contact Us" if it's the contact item
-            const displayLabel = item.id === 'contact' || item.label.toLowerCase() === 'contact' 
-              ? 'Contact Us' 
-              : item.label;
+        {/* Changed to justify-between to push items left and right */}
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-3 flex items-center justify-between">
+          
+          {/* LEFT ALIGNED LINKS (Home, Services, Impact, About, Reviews) */}
+          <div className="flex items-center space-x-8 xl:space-x-12">
+            {data.navItems
+              .filter(item => !['faq', 'contact'].some(key => item.id.toLowerCase().includes(key) || item.label.toLowerCase().includes(key)))
+              .map((item) => (
+                <button 
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  // Changed color to #1800ad and set font to medium (unbolded)
+                  className="text-[#1800ad] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                >
+                  {item.label}
+                </button>
+            ))}
+          </div>
 
-            return (
-              <button 
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                // Applied the exact #661414 color requested, with an extra bold font to help it stand out against the teal
-                className="text-[#661414] font-extrabold text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
-              >
-                {displayLabel}
-              </button>
-            );
-          })}
+          {/* RIGHT ALIGNED LINKS (FAQ, Contact Us) */}
+          <div className="flex items-center space-x-8 xl:space-x-12 lg:pr-2">
+            {data.navItems
+              .filter(item => ['faq', 'contact'].some(key => item.id.toLowerCase().includes(key) || item.label.toLowerCase().includes(key)))
+              .map((item) => {
+                const displayLabel = item.id === 'contact' || item.label.toLowerCase().includes('contact') 
+                  ? 'Contact Us' 
+                  : item.label;
+
+                return (
+                  <button 
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    // Changed color to #1800ad and set font to medium (unbolded)
+                    className="text-[#1800ad] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                  >
+                    {displayLabel}
+                  </button>
+                );
+            })}
+          </div>
+
         </div>
       </div>
 
@@ -125,7 +147,7 @@ const Navbar = ({ data }) => {
           
           <ul className="flex flex-col px-6 py-4">
             {data.navItems.map((item) => {
-              const displayLabel = item.id === 'contact' || item.label.toLowerCase() === 'contact' 
+              const displayLabel = item.id === 'contact' || item.label.toLowerCase().includes('contact') 
                 ? 'Contact Us' 
                 : item.label;
 
