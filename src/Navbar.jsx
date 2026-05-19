@@ -30,14 +30,14 @@ const Navbar = ({ data }) => {
       <div className="absolute inset-0 z-0 bg-[#28A78D]">
         
         {/* Pure White - Left Section */}
-        {/* SHIFTED LEFT: Reduced lg width from 40% to 33% to eat the blank space */}
-        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[33%] h-full bg-white z-10" style={{
+        {/* SHRUNK SLIGHTLY: Reduced lg width to 30% so "Home" is fully in the Teal area */}
+        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[30%] h-full bg-white z-10" style={{
           clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
         }}></div>
         
         {/* Navy Blue - Right Section */}
-        {/* SHIFTED LEFT: Increased lg width from 45% to 56% to cover the new contact icons */}
-        <div className="absolute top-0 right-0 w-[15%] md:w-[45%] lg:w-[56%] h-full bg-[#2D4B7A] z-10" style={{
+        {/* PUSHED RIGHT: Reduced lg width from 56% to 46% to give Teal more room for the "About" link */}
+        <div className="absolute top-0 right-0 w-[15%] md:w-[45%] lg:w-[46%] h-full bg-[#2D4B7A] z-10" style={{
           clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0 100%)'
         }}></div>
       </div>
@@ -46,7 +46,7 @@ const Navbar = ({ data }) => {
       <div className="relative z-20 flex items-center justify-between px-4 md:px-6 lg:px-8 w-full gap-4">
         
         {/* Logo Section */}
-        <div className="flex items-center cursor-pointer h-16 md:h-20 lg:h-[88px] max-w-[55%] md:max-w-[35%] lg:max-w-[28%]" onClick={() => handleNavClick('home')}>
+        <div className="flex items-center cursor-pointer h-16 md:h-20 lg:h-[88px] max-w-[55%] md:max-w-[35%] lg:max-w-[25%]" onClick={() => handleNavClick('home')}>
           <img 
             src={data.logoImage} 
             alt={data.logoName} 
@@ -55,22 +55,22 @@ const Navbar = ({ data }) => {
         </div>
         
         {/* Desktop Navigation & Contact Bar */}
-        {/* Upgraded from md:flex to lg:flex to protect the layout on tablets */}
-        <div className="hidden lg:flex items-center justify-end w-full">
+        {/* Changed to justify-between to naturally spread the links left and the contacts right */}
+        <div className="hidden lg:flex items-center justify-between w-full pl-2 xl:pl-6">
           
-          {/* Main Links */}
-          <ul className="flex space-x-1 xl:space-x-2 text-white font-medium items-center">
+          {/* Main Links - Shifted Left */}
+          <ul className="flex space-x-1 xl:space-x-3 text-white font-medium items-center">
             {data.navItems.map((item) => (
               <li key={item.id}>
                 <button 
                   onClick={() => handleNavClick(item.id)}
-                  className="px-3 xl:px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-300 text-sm xl:text-base drop-shadow-md hover:translate-y-[-2px]"
+                  className="px-2 xl:px-3 py-2 rounded-lg hover:bg-white/20 transition-all duration-300 text-sm xl:text-base drop-shadow-md hover:translate-y-[-2px]"
                 >
                   {item.label}
                 </button>
               </li>
             ))}
-            <li className="ml-2 xl:ml-4 mr-4 xl:mr-6">
+            <li className="ml-2 xl:ml-4">
               <button 
                 onClick={() => handleNavClick('contact')}
                 className="bg-white text-[#2D4B7A] px-5 xl:px-6 py-2.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-sm xl:text-base whitespace-nowrap"
@@ -80,17 +80,23 @@ const Navbar = ({ data }) => {
             </li>
           </ul>
 
-          {/* New Contact & Social Section */}
-          <div className="flex items-center space-x-4 border-l border-white/30 pl-4 xl:pl-6 text-white">
-            <a href="tel:+11234567890" className="flex items-center hover:text-[#28A78D] transition-colors group">
+          {/* Contact & Social Section */}
+          <div className="flex items-center space-x-3 xl:space-x-4 pl-4 text-white ml-auto">
+            
+            {/* Highlighted Teal Phone Box */}
+            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] hover:bg-[#218c75] px-4 py-2 rounded-lg transition-all shadow-md group border border-[#218c75]">
               <FaPhoneAlt className="text-sm xl:text-base mr-2 group-hover:scale-110 transition-transform"/>
-              <span className="text-sm xl:text-base font-semibold tracking-wide whitespace-nowrap">(123) 456-7890</span>
+              <span className="text-sm xl:text-base font-bold tracking-wide whitespace-nowrap">(123) 456-7890</span>
             </a>
-            <div className="flex items-center space-x-3">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 hover:scale-110 transition-all">
+
+            {/* Brand Colored Social Icons */}
+            <div className="flex items-center space-x-2 xl:space-x-3">
+              {/* Official Instagram Gradient */}
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
                 <FaInstagram className="text-xl"/>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 hover:scale-110 transition-all">
+              {/* Official WhatsApp Green */}
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
                 <FaWhatsapp className="text-xl"/>
               </a>
             </div>
@@ -132,14 +138,18 @@ const Navbar = ({ data }) => {
             </li>
           </ul>
           
-          {/* Mobile Contact & Socials at bottom of menu */}
-          <div className="flex flex-col items-center justify-center space-y-4 pb-8 pt-2">
-            <a href="tel:+11234567890" className="flex items-center text-white hover:text-[#28A78D] font-semibold text-lg">
+          {/* Mobile Contact & Socials */}
+          <div className="flex flex-col items-center justify-center space-y-5 pb-8 pt-2">
+            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] px-6 py-3 rounded-lg text-white font-bold text-lg shadow-md">
               <FaPhoneAlt className="mr-3" /> (123) 456-7890
             </a>
             <div className="flex space-x-6">
-              <a href="#" className="text-white hover:text-pink-400"><FaInstagram className="text-2xl" /></a>
-              <a href="#" className="text-white hover:text-green-400"><FaWhatsapp className="text-2xl" /></a>
+              <a href="#" className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white shadow-md">
+                <FaInstagram className="text-2xl" />
+              </a>
+              <a href="#" className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#25D366] text-white shadow-md">
+                <FaWhatsapp className="text-2xl" />
+              </a>
             </div>
           </div>
         </div>
