@@ -95,7 +95,6 @@ const Navbar = ({ data }) => {
       {/* TIER 2: END-TO-END TEAL STRIP (Nav Links) */}
       {/* ========================================= */}
       <div className="hidden lg:block w-full bg-[#28A78D] shadow-inner">
-        {/* Changed to justify-between to push items left and right */}
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-3 flex items-center justify-between">
           
           {/* LEFT ALIGNED LINKS (Home, Services, Impact, About, Reviews) */}
@@ -106,8 +105,8 @@ const Navbar = ({ data }) => {
                 <button 
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  // Changed color to #1800ad and set font to medium (unbolded)
-                  className="text-[#1800ad] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                  // Updated text color to match the CTA button background (#2D4B7A)
+                  className="text-[#2D4B7A] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
                 >
                   {item.label}
                 </button>
@@ -127,8 +126,8 @@ const Navbar = ({ data }) => {
                   <button 
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    // Changed color to #1800ad and set font to medium (unbolded)
-                    className="text-[#1800ad] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                    // Updated text color to match the CTA button background (#2D4B7A)
+                    className="text-[#2D4B7A] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
                   >
                     {displayLabel}
                   </button>
