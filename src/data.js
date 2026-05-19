@@ -3,7 +3,7 @@ import { FaHome, FaGraduationCap, FaChartLine, FaShieldAlt } from 'react-icons/f
 export const templateData = {
   header: {
     logoName: "Chirag Patel",
-    logoImage: "/InsureWithChiragv4-cropped.svg",
+    logoImage: "/InsureWithChirag-transparent.svg",
     navItems: [
       { id: "home", label: "Home" },
       { id: "services", label: "Services" },
