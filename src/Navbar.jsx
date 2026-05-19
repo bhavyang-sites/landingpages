@@ -16,137 +16,146 @@ const Navbar = ({ data }) => {
   const handleNavClick = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Offset for the taller stacked header
+      const headerOffset = 130; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
     setIsOpen(false);
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 overflow-hidden transition-all duration-300 ${
-      scrolled ? 'shadow-lg bg-white/95 backdrop-blur-md' : 'bg-white'
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? 'shadow-xl' : 'shadow-md'
     }`}>
       
-      {/* --- Responsive Bold Color Sections with Tilted Slices --- */}
-      <div className="absolute inset-0 z-0 bg-[#28A78D]">
-        
-        {/* Pure White - Left Section */}
-        {/* FIX 1: Shrunk lg width down to 24% to pull the slanted cut far to the left */}
-        <div className="absolute top-0 left-0 w-[70%] md:w-[40%] lg:w-[24%] h-full bg-white z-10" style={{
-          clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)'
-        }}></div>
-        
-        {/* Navy Blue - Right Section */}
-        <div className="absolute top-0 right-0 w-[15%] md:w-[45%] lg:w-[46%] h-full bg-[#2D4B7A] z-10" style={{
-          clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0 100%)'
-        }}></div>
-      </div>
-
-      {/* Main Navbar Container */}
-      <div className="relative z-20 flex items-center justify-between px-4 md:px-6 lg:px-8 w-full gap-4">
-        
-        {/* Logo Section */}
-        <div className="flex items-center cursor-pointer h-16 md:h-20 lg:h-[88px] max-w-[55%] md:max-w-[35%] lg:max-w-[25%]" onClick={() => handleNavClick('home')}>
-          <img 
-            src={data.logoImage} 
-            alt={data.logoName} 
-            className="h-full w-auto object-contain object-left transition-transform duration-300 hover:scale-105" 
-          />
-        </div>
-        
-        {/* Desktop Navigation & Contact Bar */}
-        <div className="hidden lg:flex items-center justify-between w-full pl-6 lg:pl-10 xl:pl-14">
+      {/* ========================================= */}
+      {/* TIER 1: TOP WHITE PANEL (Logo & Contacts) */}
+      {/* ========================================= */}
+      <div className="w-full bg-white transition-all duration-300">
+        {/* max-w-[1400px] adds that nice even padding/spacing to the far left and right edges */}
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 lg:px-12 py-3 lg:py-4">
           
-          {/* Main Links */}
-          {/* Removed global text-white to allow dynamic colors */}
-          <ul className="flex space-x-1 xl:space-x-3 font-medium items-center">
-            {data.navItems.map((item) => (
-              <li key={item.id}>
-                <button 
-                  onClick={() => handleNavClick(item.id)}
-                  /* FIX 2: Dynamic Text Colors - Navy for normal links, White for Contact */
-                  className={`px-2 xl:px-3 py-2 rounded-lg transition-all duration-300 text-sm xl:text-base hover:translate-y-[-2px] ${
-                    item.id === 'contact' || item.label.toLowerCase() === 'contact'
-                      ? 'text-white hover:bg-white/20 drop-shadow-md' 
-                      : 'text-[#2D4B7A] font-bold hover:bg-white/30'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-            <li className="ml-2 xl:ml-4">
-              <button 
-                onClick={() => handleNavClick('contact')}
-                className="bg-white text-[#2D4B7A] px-5 xl:px-6 py-2.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-sm xl:text-base whitespace-nowrap"
-              >
-                {data.ctaText}
-              </button>
-            </li>
-          </ul>
+          {/* Logo - Shifted right naturally by the container padding */}
+          <div className="flex items-center cursor-pointer h-16 lg:h-20" onClick={() => handleNavClick('home')}>
+            <img 
+              src={data.logoImage} 
+              alt={data.logoName} 
+              className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105" 
+            />
+          </div>
 
-          {/* Contact & Social Section */}
-          <div className="flex items-center space-x-3 xl:space-x-4 pl-4 ml-auto">
+          {/* Desktop Right Side (Phone, Socials, Button) */}
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             
-            {/* Highlighted Teal Phone Box */}
-            {/* FIX 2: Changed text to Navy Blue to match the navigation links */}
-            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] hover:bg-[#218c75] text-[#2D4B7A] px-4 py-2 rounded-lg transition-all shadow-md group border border-[#218c75]">
-              <FaPhoneAlt className="text-sm xl:text-base mr-2 group-hover:scale-110 transition-transform"/>
-              <span className="text-sm xl:text-base font-extrabold tracking-wide whitespace-nowrap">(123) 456-7890</span>
+            {/* Phone Number */}
+            <a href="tel:+11234567890" className="flex items-center text-[#2D4B7A] hover:text-[#28A78D] transition-colors group">
+              <FaPhoneAlt className="text-lg mr-2 group-hover:scale-110 transition-transform"/>
+              <span className="text-lg font-extrabold tracking-wide whitespace-nowrap">(123) 456-7890</span>
             </a>
 
-            {/* Brand Colored Social Icons */}
-            <div className="flex items-center space-x-2 xl:space-x-3">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
+            {/* Social Icons */}
+            <div className="flex items-center space-x-3 border-l-2 border-slate-200 pl-6 xl:pl-8">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
                 <FaInstagram className="text-xl"/>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
                 <FaWhatsapp className="text-xl"/>
               </a>
             </div>
-          </div>
 
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="lg:hidden text-2xl text-white focus:outline-none p-2 drop-shadow-md hover:bg-white/20 rounded-lg transition-all z-20"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Dropdown */}
-      {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-md border-t border-slate-700 shadow-2xl relative z-20 animate-in fade-in slide-in-from-top-2 duration-300">
-          <ul className="flex flex-col space-y-2 px-6 py-6 text-white font-medium">
-            {data.navItems.map((item) => (
-              <li key={item.id}>
-                <button 
-                  onClick={() => handleNavClick(item.id)}
-                  className="w-full text-left text-lg px-4 py-3 rounded-lg hover:bg-[#28A78D]/30 transition-all duration-300"
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-            <li className="pt-4 border-t border-slate-700">
+            {/* CTA Button */}
+            <div className="pl-2">
               <button 
                 onClick={() => handleNavClick('contact')}
-                className="w-full bg-[#28A78D] text-white px-5 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-[#218c75]"
+                className="bg-[#2D4B7A] text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#1f3559] text-base whitespace-nowrap"
               >
                 {data.ctaText}
               </button>
-            </li>
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden text-2xl text-[#2D4B7A] focus:outline-none p-2 rounded-lg transition-all"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+
+        </div>
+      </div>
+
+      {/* ========================================= */}
+      {/* TIER 2: END-TO-END TEAL STRIP (Nav Links) */}
+      {/* ========================================= */}
+      <div className="hidden lg:block w-full bg-[#28A78D] shadow-inner">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-3 flex items-center space-x-8 xl:space-x-12">
+          {data.navItems.map((item) => {
+            // Automatically rename the label to "Contact Us" if it's the contact item
+            const displayLabel = item.id === 'contact' || item.label.toLowerCase() === 'contact' 
+              ? 'Contact Us' 
+              : item.label;
+
+            return (
+              <button 
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                // Applied the exact #661414 color requested, with an extra bold font to help it stand out against the teal
+                className="text-[#661414] font-extrabold text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+              >
+                {displayLabel}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ========================================= */}
+      {/* MOBILE DROPDOWN MENU                      */}
+      {/* ========================================= */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-300">
+          
+          <ul className="flex flex-col px-6 py-4">
+            {data.navItems.map((item) => {
+              const displayLabel = item.id === 'contact' || item.label.toLowerCase() === 'contact' 
+                ? 'Contact Us' 
+                : item.label;
+
+              return (
+                <li key={item.id} className="border-b border-slate-100 last:border-none">
+                  <button 
+                    onClick={() => handleNavClick(item.id)}
+                    className="w-full text-left text-lg py-4 font-bold text-[#2D4B7A] hover:text-[#28A78D] transition-colors"
+                  >
+                    {displayLabel}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
           
-          {/* Mobile Contact & Socials */}
-          <div className="flex flex-col items-center justify-center space-y-5 pb-8 pt-2">
-            <a href="tel:+11234567890" className="flex items-center bg-[#28A78D] px-6 py-3 rounded-lg text-white font-bold text-lg shadow-md">
-              <FaPhoneAlt className="mr-3" /> (123) 456-7890
+          {/* Mobile Contact & Socials Panel */}
+          <div className="bg-slate-50 px-6 py-8 flex flex-col items-center space-y-6">
+            <a href="tel:+11234567890" className="flex items-center text-[#2D4B7A] font-extrabold text-xl">
+              <FaPhoneAlt className="mr-3 text-[#28A78D]" /> (123) 456-7890
             </a>
-            <div className="flex space-x-6">
+            
+            <button 
+              onClick={() => handleNavClick('contact')}
+              className="w-full bg-[#2D4B7A] text-white px-5 py-4 rounded-lg font-bold transition-all shadow-lg text-lg"
+            >
+              {data.ctaText}
+            </button>
+
+            <div className="flex space-x-6 pt-2">
               <a href="#" className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white shadow-md">
                 <FaInstagram className="text-2xl" />
               </a>
@@ -155,9 +164,10 @@ const Navbar = ({ data }) => {
               </a>
             </div>
           </div>
+
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 
