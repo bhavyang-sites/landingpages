@@ -53,9 +53,9 @@ const Navbar = ({ data }) => {
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             
             {/* Phone Number */}
-            <a href="tel:+11234567890" className="flex items-center text-[#2D4B7A] hover:text-[#28A78D] transition-colors group">
+            <a href="tel:+16478211177" className="flex items-center text-[#2D4B7A] hover:text-[#28A78D] transition-colors group">
               <FaPhoneAlt className="text-lg mr-2 group-hover:scale-110 transition-transform"/>
-              <span className="text-lg font-extrabold tracking-wide whitespace-nowrap">(123) 456-7890</span>
+              <span className="text-lg font-extrabold tracking-wide whitespace-nowrap">(647) 821-1177</span>
             </a>
 
             {/* Social Icons */}
@@ -165,8 +165,8 @@ const Navbar = ({ data }) => {
           
           {/* Mobile Contact & Socials Panel */}
           <div className="bg-slate-50 px-6 py-8 flex flex-col items-center space-y-6">
-            <a href="tel:+11234567890" className="flex items-center text-[#2D4B7A] font-extrabold text-xl">
-              <FaPhoneAlt className="mr-3 text-[#28A78D]" /> (123) 456-7890
+            <a href="tel:+16478211177" className="flex items-center text-[#2D4B7A] font-extrabold text-xl">
+              <FaPhoneAlt className="mr-3 text-[#28A78D]" /> (647) 821-1177
             </a>
             
             <button 
