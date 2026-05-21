@@ -3,13 +3,14 @@ import { FaArrowRight, FaPlay } from 'react-icons/fa';
 
 const Hero = ({ data }) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+    // FIX: Added mt-[88px] for mobile and lg:mt-[144px] for desktop to push it below the header
+    // Adjusted min-h to subtract the header height so it perfectly fills the viewport
+    <section className="relative min-h-[calc(100vh-88px)] lg:min-h-[calc(100vh-144px)] mt-[88px] lg:mt-[144px] flex items-center justify-center py-12 overflow-hidden">
       
       {/* ========================================= */}
       {/* BACKGROUND IMAGE & OVERLAY                */}
       {/* ========================================= */}
       <div className="absolute inset-0 z-0 bg-[#0f172a]">
-        {/* Replace this src with your actual desired image URL or imported asset */}
         <img
           src="/hero.jpg"
           alt="Secure family home"
@@ -22,14 +23,14 @@ const Hero = ({ data }) => {
       {/* ========================================= */}
       {/* HERO CONTENT                              */}
       {/* ========================================= */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white mt-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight drop-shadow-lg">
           Secure Your Family's Financial Future with Confidence
         </h1>
 
-        {/* Subheadline (Location Removed) */}
+        {/* Subheadline */}
         <p className="text-xl md:text-2xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
           Expert wealth management, tailored insurance, and strategic planning for families navigating today's dynamic financial landscape.
         </p>
