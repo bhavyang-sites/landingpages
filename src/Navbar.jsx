@@ -105,8 +105,8 @@ const Navbar = ({ data }) => {
                 <button 
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  // Updated text color to match the CTA button background (#2D4B7A)
-                  className="text-[#2D4B7A] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                  // CHANGED: text-white and hover:text-slate-200
+                  className="text-white font-medium text-base tracking-wide hover:text-slate-200 transition-colors duration-300 hover:translate-y-[-1px]"
                 >
                   {item.label}
                 </button>
@@ -126,8 +126,8 @@ const Navbar = ({ data }) => {
                   <button 
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    // Updated text color to match the CTA button background (#2D4B7A)
-                    className="text-[#2D4B7A] font-medium text-base tracking-wide hover:text-white transition-colors duration-300 hover:translate-y-[-1px]"
+                    // CHANGED: text-white and hover:text-slate-200
+                    className="text-white font-medium text-base tracking-wide hover:text-slate-200 transition-colors duration-300 hover:translate-y-[-1px]"
                   >
                     {displayLabel}
                   </button>
