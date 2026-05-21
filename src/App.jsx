@@ -71,8 +71,8 @@ const App = () => {
               <div>
                 <h4 className="text-white font-semibold mb-4">Contact</h4>
                 <ul className="space-y-2 text-sm">
-                  <li>📧 info@chiraghpatel.com</li>
-                  <li>📱 (905) 555-0123</li>
+                  <li>📧 connect@insurewithchirag.com</li>
+                  <li>📱 (647) 821-1177</li>
                   <li>📍 Brampton, Canada</li>
                 </ul>
               </div>
