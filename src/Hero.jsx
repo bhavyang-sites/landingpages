@@ -26,14 +26,15 @@ const Hero = ({ data }) => {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         
         {/* Headline */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight drop-shadow-lg">
-          Secure Your Family's Financial Future with Confidence
-        </h1>
+        {/* Headline */}
+<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
+  Secure Your Family's Financial Future with <span className="text-[#28A78D]">Confidence</span>
+</h1>
 
-        {/* Subheadline */}
-        <p className="text-xl md:text-2xl text-slate-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-          Expert wealth management, tailored insurance, and strategic planning for families navigating today's dynamic financial landscape.
-        </p>
+{/* Subheadline */}
+<p className="text-xl md:text-2xl text-slate-100 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
+  Smart investments and reliable insurance to help your family grow wealth and protect what matters most.
+</p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
