@@ -14,7 +14,7 @@ const Hero = ({ data }) => {
           I have set object-right so the image focuses on the right side on mobile screens.
         */}
         <img
-          src="hero3.jpg"
+          src="hero4.jpg"
           alt="Secure family home"
           className="w-full h-full object-cover object-right"
         />
