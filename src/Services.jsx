@@ -11,11 +11,12 @@ import {
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
 
-  // Service Data Array - Ordered exactly as requested
+  // Service Data Array with assigned background images
   const services = [
     {
       id: 'rrsp-tfsa',
-      icon: <FaPiggyBank className="text-4xl text-[#28A78D]" />,
+      icon: <FaPiggyBank className="text-3xl text-white" />,
+      image: '/rrsp.jpg',
       title: 'RRSP & TFSA Investments',
       shortDesc: 'Optimize your wealth and plan for retirement with tax-advantaged savings accounts.',
       modalTitle: 'The Right Plan for Tax-Advantaged Savings',
@@ -36,7 +37,8 @@ const Services = () => {
     },
     {
       id: 'resp',
-      icon: <FaGraduationCap className="text-4xl text-[#2D4B7A]" />,
+      icon: <FaGraduationCap className="text-3xl text-white" />,
+      image: '/resp.jpg',
       title: 'Kids Education & Future (RESP)',
       shortDesc: 'Secure your child\'s higher education against all financial odds with government grants.',
       modalTitle: 'Registered Education Savings Plan (RESP)',
@@ -54,7 +56,8 @@ const Services = () => {
     },
     {
       id: 'fhsa',
-      icon: <FaHome className="text-4xl text-[#28A78D]" />,
+      icon: <FaHome className="text-3xl text-white" />,
+      image: '/fhsa.jpg',
       title: 'First Home Savings Account (FHSA)',
       shortDesc: 'Accelerate your path to homeownership with tax-free savings and withdrawals.',
       modalTitle: 'First Home Savings Account (FHSA)',
@@ -72,7 +75,8 @@ const Services = () => {
     },
     {
       id: 'visitor-supervisa',
-      icon: <FaPlaneArrival className="text-4xl text-[#2D4B7A]" />,
+      icon: <FaPlaneArrival className="text-3xl text-white" />,
+      image: '/supervisa.jpg',
       title: 'Visitor & Supervisa Insurance',
       shortDesc: 'Comprehensive medical coverage for parents, grandparents, and international guests.',
       modalTitle: 'Visitor & Super Visa Insurance',
@@ -93,7 +97,8 @@ const Services = () => {
     },
     {
       id: 'life-critical',
-      icon: <FaHeartbeat className="text-4xl text-[#28A78D]" />,
+      icon: <FaHeartbeat className="text-3xl text-white" />,
+      image: '/critical.jpg',
       title: 'Life & Critical Illness Insurance',
       shortDesc: 'Protect your family\'s financial stability against life\'s unforeseen health emergencies.',
       modalTitle: 'Life & Critical Illness Protection',
@@ -133,31 +138,43 @@ const Services = () => {
           {services.map((service) => (
             <div 
               key={service.id} 
-              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300 border border-slate-100 flex flex-col items-start group"
+              onClick={() => setSelectedService(service)}
+              className="group relative bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[380px] flex flex-col cursor-pointer border border-slate-200/50"
             >
-              <div className="bg-slate-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              {/* Background Image with Hover Zoom */}
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              {/* Dark Gradient Overlay to ensure text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/20 group-hover:via-slate-900/90 transition-all duration-300"></div>
+              
+              {/* Card Content (Relative so it sits on top of the image) */}
+              <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+                
+                {/* Icon in Glassmorphism Box */}
+                <div className="bg-white/20 backdrop-blur-md w-14 h-14 rounded-xl flex items-center justify-center mb-auto border border-white/30 shadow-sm">
+                  {service.icon}
+                </div>
+                
+                {/* Text Content Area */}
+                <div className="mt-8">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#28A78D] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-slate-200 text-sm leading-relaxed mb-5">
+                    {service.shortDesc}
+                  </p>
+                  
+                  <div className="text-[#28A78D] font-bold text-sm flex items-center group-hover:text-white transition-colors duration-300">
+                    Learn More <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
+                  </div>
+                </div>
+
               </div>
-              
-              {/* Clickable Title */}
-              <button 
-                onClick={() => setSelectedService(service)}
-                className="text-xl font-bold text-[#2D4B7A] mb-3 text-left hover:text-[#28A78D] transition-colors focus:outline-none"
-              >
-                {service.title}
-              </button>
-              
-              <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
-                {service.shortDesc}
-              </p>
-              
-              {/* Secondary Clickable trigger */}
-              <button 
-                onClick={() => setSelectedService(service)}
-                className="text-[#28A78D] font-bold text-sm flex items-center group-hover:underline focus:outline-none mt-auto"
-              >
-                Learn More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </button>
             </div>
           ))}
         </div>
