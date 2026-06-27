@@ -18,7 +18,7 @@ const About = () => {
             
             {/* 2. THE IMAGE FRAME: Thick white border with a sharp, delicate gray outer ring */}
             <img 
-              src="/chirag-profile.jpg" 
+              src="/chirag-profile-2.jpg" 
               alt="Chirag Patel - Licensed Insurance Advisor" 
               className="relative z-10 w-full h-auto rounded-2xl shadow-xl border-8 border-white ring-1 ring-slate-200"
             />
