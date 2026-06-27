@@ -17,7 +17,7 @@ const About = () => {
             
             {/* Main Image - Replace the src with an actual professional headshot of Chirag */}
             <img 
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              src="/chirag-profile.jpg" 
               alt="Chirag - Licensed Insurance Advisor" 
               className="relative z-10 w-full h-[500px] object-cover rounded-2xl shadow-2xl border-4 border-white"
             />
