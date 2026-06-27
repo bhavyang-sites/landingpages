@@ -17,10 +17,11 @@ const About = () => {
             
             {/* Main Image - Replace the src with an actual professional headshot of Chirag */}
             <img 
-              src="/chirag-profile.jpg" 
-              alt="Chirag - Licensed Insurance Advisor" 
-              className="relative z-10 w-full h-[500px] object-cover rounded-2xl shadow-2xl border-4 border-white"
-            />
+  src="/chirag-profile.jpg" 
+  alt="Chirag - Licensed Insurance Advisor" 
+  // ADDED object-top right after object-cover
+  className="relative z-10 w-full h-[500px] object-cover object-top rounded-2xl shadow-2xl border-4 border-white"
+/>
             
             {/* Floating Trust Badge */}
             <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 bg-white p-4 rounded-xl shadow-xl z-20 border border-slate-100 flex items-center gap-4 animate-bounce-slow">
