@@ -18,11 +18,10 @@ const About = () => {
             
             {/* 2. THE IMAGE FRAME: Thick white border with a sharp, delicate gray outer ring */}
             <img 
-  src="/chirag-profile.jpg" 
-  alt="Chirag Patel - Licensed Insurance Advisor" 
-  // FIX: Added a fixed height and object-bottom to crop the top whitespace
-  className="relative z-10 w-full h-[450px] lg:h-[550px] object-cover object-bottom rounded-2xl shadow-xl border-8 border-white ring-1 ring-slate-200"
-/>
+              src="/chirag-profile.jpg" 
+              alt="Chirag Patel - Licensed Insurance Advisor" 
+              className="relative z-10 w-full h-auto rounded-2xl shadow-xl border-8 border-white ring-1 ring-slate-200"
+            />
             
             {/* Floating Trust Badge */}
             <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 bg-white p-4 rounded-xl shadow-xl z-20 border border-slate-100 flex items-center gap-4 animate-bounce-slow">
