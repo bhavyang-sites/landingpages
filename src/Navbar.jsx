@@ -60,9 +60,18 @@ const Navbar = ({ data }) => {
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3 border-l-2 border-slate-200 pl-6 xl:pl-8">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
-                <FaInstagram className="text-xl"/>
-              </a>
+              // Make sure you have the icon imported at the top of your file:
+// import { FaInstagram } from 'react-icons/fa';
+
+<a 
+  href="https://www.instagram.com/insure_with_chirag?igsh=MW52NXQzZXg1eTQzZg==&utm_source=ig_contact_invite" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="text-slate-400 hover:text-[#E1306C] transition-colors duration-300 inline-block"
+  aria-label="Follow Insure with Chirag on Instagram"
+>
+  <FaInstagram className="text-2xl" />
+</a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
                 <FaWhatsapp className="text-xl"/>
               </a>
