@@ -6,23 +6,21 @@ const About = () => {
     <section id="about" className="py-20 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
-        {/* FIX 1: Changed 'items-center' to 'items-start' to align the image to the top of the text */}
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           
           {/* ========================================= */}
           {/* LEFT SIDE: ADVISOR IMAGE                  */}
           {/* ========================================= */}
-          {/* Added mt-2 so the image aligns perfectly with the visual baseline of the top text */}
           <div className="w-full lg:w-5/12 relative mt-2">
-            {/* Teal decorative background square */}
-            <div className="absolute top-4 -left-4 w-full h-full bg-[#28A78D] rounded-2xl transform -rotate-2 opacity-20 hidden md:block"></div>
             
-            {/* Main Image */}
-            {/* FIX 2: Replaced 'h-[500px] object-cover object-top' with 'h-auto' to prevent any cropping */}
+            {/* 1. NEW BACKGROUND: Straightened out and made slightly sharper for a corporate look */}
+            <div className="absolute top-6 -left-6 w-full h-full bg-slate-100 border border-slate-200 rounded-2xl hidden md:block"></div>
+            
+            {/* 2. THE IMAGE FRAME: Thick white border with a sharp, delicate gray outer ring */}
             <img 
               src="/chirag-profile.jpg" 
               alt="Chirag Patel - Licensed Insurance Advisor" 
-              className="relative z-10 w-full h-auto rounded-2xl shadow-2xl border-4 border-white"
+              className="relative z-10 w-full h-auto rounded-2xl shadow-xl border-8 border-white ring-1 ring-slate-200"
             />
             
             {/* Floating Trust Badge */}
