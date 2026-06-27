@@ -23,15 +23,14 @@ const About = () => {
               className="relative z-10 w-full h-auto rounded-2xl shadow-xl border-8 border-white ring-1 ring-slate-200"
             />
             
-           {/* Floating Trust Badge */}
+          {/* Floating Trust Badge */}
 <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 bg-white p-4 rounded-xl shadow-xl z-20 border border-slate-100 flex items-center gap-4 animate-bounce-slow">
   <div className="bg-[#2D4B7A] p-3 rounded-full text-white">
     <FaShieldAlt className="text-xl" />
   </div>
   <div>
-    {/* Keeps the crucial word "Licensed" */}
-    <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Licensed Advisor</p>
-    {/* Removes Ontario, highlights independence */}
+    {/* FIX: Changed text-slate-500 to text-slate-700 for darker, clearer text */}
+    <p className="text-xs text-slate-700 font-bold uppercase tracking-wider">Licensed Advisor</p>
     <p className="text-[#2D4B7A] font-extrabold text-lg">Independent Broker</p>
   </div>
 </div>
