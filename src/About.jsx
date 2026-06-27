@@ -1,59 +1,95 @@
 import React from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheckCircle, FaHandshake, FaShieldAlt } from 'react-icons/fa';
 
-const About = ({ data }) => {
+const About = () => {
   return (
-    <section id={data.id} className="py-24 bg-gradient-to-b from-white to-slate-50 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-        <div className="w-full md:w-1/2">
-          <div className="relative group">
-            {/* Animated background blur */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-            
-            {/* Shadow effect */}
-            <div className="absolute inset-0 bg-blue-600 translate-x-6 translate-y-6 rounded-3xl opacity-20"></div>
-            
-            {/* Main image */}
-            <img 
-              src={data.image} 
-              alt={data.title}
-              className="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover z-10 border-4 border-white"
-            />
-          </div>
-        </div>
+    <section id="about" className="py-20 bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
-        <div className="w-full md:w-1/2">
-          <div className="inline-block mb-4">
-            <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">ABOUT US</span>
-          </div>
-          <h2 className="text-5xl font-bold text-slate-900 mb-2">{data.title}</h2>
-          <p className="text-blue-600 font-semibold text-lg mb-6">{data.subtitle}</p>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mb-8 rounded-full"></div>
-          
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 whitespace-pre-line">
-            {data.content}
-          </p>
-          
-          {/* Credentials */}
-          {data.credentials && (
-            <div className="mb-10 space-y-3">
-              {data.credentials.map((credential, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                    <FaCheck className="text-sm" />
-                  </div>
-                  <span className="text-slate-700 font-medium">{credential}</span>
-                </div>
-              ))}
+          {/* ========================================= */}
+          {/* LEFT SIDE: ADVISOR IMAGE                  */}
+          {/* ========================================= */}
+          <div className="w-full lg:w-5/12 relative">
+            {/* Teal decorative background square */}
+            <div className="absolute top-4 -left-4 w-full h-full bg-[#28A78D] rounded-2xl transform -rotate-2 opacity-20 hidden md:block"></div>
+            
+            {/* Main Image - Replace the src with an actual professional headshot of Chirag */}
+            <img 
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              alt="Chirag - Licensed Insurance Advisor" 
+              className="relative z-10 w-full h-[500px] object-cover rounded-2xl shadow-2xl border-4 border-white"
+            />
+            
+            {/* Floating Trust Badge */}
+            <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 bg-white p-4 rounded-xl shadow-xl z-20 border border-slate-100 flex items-center gap-4 animate-bounce-slow">
+              <div className="bg-[#2D4B7A] p-3 rounded-full text-white">
+                <FaShieldAlt className="text-xl" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Licensed In</p>
+                <p className="text-[#2D4B7A] font-extrabold text-lg">Ontario, Canada</p>
+              </div>
             </div>
-          )}
-          
-          {/* CTA */}
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 transform">
-            Schedule Your Consultation
-          </button>
+          </div>
+
+          {/* ========================================= */}
+          {/* RIGHT SIDE: PROFILE COPY                  */}
+          {/* ========================================= */}
+          <div className="w-full lg:w-7/12">
+            <h2 className="text-sm font-bold tracking-[0.2em] text-[#28A78D] uppercase mb-3">
+              About Insure With Chirag
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D4B7A] mb-8 leading-tight">
+              Your Trusted Financial Partner in Ontario
+            </h3>
+            
+            <div className="space-y-5 text-slate-600 text-lg leading-relaxed">
+              <p>
+                I am a licensed insurance and investment advisor proudly serving our Ontario community with transparent, trustworthy financial guidance. From protecting your loved ones with Life and Disability Insurance, to welcoming family with Super Visa Insurance, to growing your wealth through RRSPs, TFSAs, and FHSAs—I am here to help you navigate your options with clarity.
+              </p>
+              <p>
+                Because I work independently with all leading Canadian insurance and investment providers, I am never restricted to a single company's catalog. My focus is entirely on finding the perfect fit for your unique needs. Your family’s financial security deserves more than a one-size-fits-all solution.
+              </p>
+              <p>
+                My commitment to you extends far beyond policy selection. I provide deep, hands-on support across your entire journey, from the initial application right through to <strong>claims support</strong>. Known for my reliability and genuine care, I take pride in being the advisor my community trusts for life's most important decisions—and the one they know they can count on when it matters most.
+              </p>
+            </div>
+
+            {/* Value Proposition Bullets */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+              <div className="flex items-center gap-3">
+                <FaCheckCircle className="text-[#28A78D] text-xl" />
+                <span className="font-bold text-[#2D4B7A]">Independent Brokerage</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaCheckCircle className="text-[#28A78D] text-xl" />
+                <span className="font-bold text-[#2D4B7A]">End-to-End Claims Support</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaCheckCircle className="text-[#28A78D] text-xl" />
+                <span className="font-bold text-[#2D4B7A]">Custom Tailored Solutions</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaCheckCircle className="text-[#28A78D] text-xl" />
+                <span className="font-bold text-[#2D4B7A]">Community Trusted</span>
+              </div>
+            </div>
+
+            {/* Signature / CTA Area */}
+            <div className="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#2D4B7A] hover:bg-[#1f3559] text-white px-8 py-3.5 rounded-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+              >
+                Schedule a Conversation
+              </button>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );
