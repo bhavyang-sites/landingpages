@@ -39,7 +39,7 @@ const About = () => {
           {/* ========================================= */}
           <div className="w-full lg:w-7/12">
             <h2 className="text-sm font-bold tracking-[0.2em] text-[#28A78D] uppercase mb-3">
-              About Insure With Chirag
+              About Chirag Patel
             </h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D4B7A] mb-8 leading-tight">
               Your Trusted Financial Partner in Ontario
