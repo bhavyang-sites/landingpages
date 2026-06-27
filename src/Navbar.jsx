@@ -63,7 +63,7 @@ const Navbar = ({ data }) => {
               <a href="https://www.instagram.com/insure_with_chirag?igsh=MW52NXQzZXg1eTQzZg==&utm_source=ig_contact_invite" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white hover:scale-110 transition-all shadow-md">
                 <FaInstagram className="text-xl"/>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
+              <a href="https://wa.me/16478211177" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#25D366] text-white hover:scale-110 transition-all shadow-md">
                 <FaWhatsapp className="text-xl"/>
               </a>
             </div>
