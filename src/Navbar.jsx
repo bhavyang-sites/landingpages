@@ -60,10 +60,7 @@ const Navbar = ({ data }) => {
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3 border-l-2 border-slate-200 pl-6 xl:pl-8">
-              // Make sure you have the icon imported at the top of your file:
-// import { FaInstagram } from 'react-icons/fa';
-
-<a 
+              <a 
   href="https://www.instagram.com/insure_with_chirag?igsh=MW52NXQzZXg1eTQzZg==&utm_source=ig_contact_invite" 
   target="_blank" 
   rel="noopener noreferrer"
