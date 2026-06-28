@@ -1,27 +1,32 @@
 import React from 'react';
 import { FaShieldAlt, FaHandshake, FaChartLine, FaUserTie } from 'react-icons/fa';
 
-const Difference = () => {
+const Stats = () => {
   const differences = [
     {
       icon: FaShieldAlt,
       title: "True Independence",
-      desc: "I am not tied to any single company. I have unrestricted access to the entire Canadian market to find the best policy for you."
+      desc: "I am not tied to any single company. I have unrestricted access to the entire Canadian market to find the best policy for you.",
+      // Using an Unsplash image for a corporate/unrestricted feel
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: FaUserTie,
       title: "Transparent Communication",
-      desc: "I provide honest, jargon-free explanations for every decision, ensuring you are empowered to make informed choices."
+      desc: "I provide honest, jargon-free explanations for every decision, ensuring you are empowered to make informed choices.",
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: FaHandshake,
       title: "Claims-First Support",
-      desc: "My partnership with you goes beyond the application. I walk with you during your most difficult times to provide hands-on claims support."
+      desc: "My partnership with you goes beyond the application. I walk with you during your most difficult times to provide hands-on claims support.",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: FaChartLine,
       title: "Long-Term Partnership",
-      desc: "From your first home purchase to your eventual retirement, I am committed to building your wealth and security for the long term."
+      desc: "From your first home purchase to your eventual retirement, I am committed to building your wealth and security for the long term.",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -43,13 +48,25 @@ const Difference = () => {
             return (
               <div 
                 key={index} 
-                className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                // Added 'relative' and 'overflow-hidden' for the background image
+                className="relative p-8 rounded-2xl border border-white/10 transition-all duration-300 overflow-hidden group"
               >
-                <div className="bg-[#28A78D] w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                  <Icon className="text-white text-2xl" />
+                {/* Background Image Layer */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
+                {/* Dark overlay to ensure text readability */}
+                <div className="absolute inset-0 bg-[#2D4B7A]/80"></div>
+
+                {/* Content Layer */}
+                <div className="relative z-10">
+                  <div className="bg-[#28A78D] w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                    <Icon className="text-white text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
               </div>
             );
           })}
@@ -59,4 +76,4 @@ const Difference = () => {
   );
 };
 
-export default Difference;
+export default Stats;
