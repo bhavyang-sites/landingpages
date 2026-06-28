@@ -7,7 +7,6 @@ const Stats = () => {
       icon: FaShieldAlt,
       title: "True Independence",
       desc: "I am not tied to any single company. I have unrestricted access to the entire Canadian market to find the best policy for you.",
-      // Using an Unsplash image for a corporate/unrestricted feel
       image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800"
     },
     {
@@ -31,13 +30,13 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#2D4B7A] text-white">
+    <section className="py-20 bg-[#2D4B7A]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             The Difference You Can Expect
           </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-200 max-w-2xl mx-auto">
             My commitment to your financial security is built on a foundation of trust, expertise, and personalized advocacy.
           </p>
         </div>
@@ -48,24 +47,22 @@ const Stats = () => {
             return (
               <div 
                 key={index} 
-                // Added 'relative' and 'overflow-hidden' for the background image
-                className="relative p-8 rounded-2xl border border-white/10 transition-all duration-300 overflow-hidden group"
+                // Changed background to white with rounded corners
+                className="relative bg-white p-8 rounded-2xl shadow-xl border border-slate-100 overflow-hidden group"
               >
-                {/* Background Image Layer */}
+                {/* Image layer: lighter opacity and positioned behind content */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+                  className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-500"
                   style={{ backgroundImage: `url(${item.image})` }}
                 ></div>
-                {/* Dark overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-[#2D4B7A]/80"></div>
-
-                {/* Content Layer */}
+                
+                {/* Content layer: text is now dark blue for high contrast */}
                 <div className="relative z-10">
                   <div className="bg-[#28A78D] w-14 h-14 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                     <Icon className="text-white text-2xl" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl font-bold text-[#2D4B7A] mb-3">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             );
