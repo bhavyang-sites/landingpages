@@ -63,7 +63,7 @@ const App = () => {
               <div>
                 <h4 className="text-white font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#about" className="hover:text-white transition-colors">About Chirag</a></li>
+                  <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
                   <li><a href="#testimonials" className="hover:text-white transition-colors">Reviews</a></li>
                   <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
                 </ul>
